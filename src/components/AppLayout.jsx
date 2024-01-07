@@ -8,8 +8,7 @@ function AppLayout() {
   return (
     <div className="app">
       <Header />
-
-      <Container className="container">
+      <Container className="container" style={{ marginTop: "60px" }}>
         <Outlet />
       </Container>
     </div>

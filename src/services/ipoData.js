@@ -5,23 +5,11 @@ const currencyList = [
   "EURUSD",
   "USDJPY",
   "GBPUSD",
-  "USDCHF",
   "AUDUSD",
   "USDCAD",
-  "NZDUSD",
-  "EURGBP",
-  "EURJPY",
   "GBPJPY",
-  "AUDJPY",
-  "EURAUD",
   "USDSGD",
-  "USDHKD",
   "USDINR",
-  "EURCHF",
-  "GBPCHF",
-  "EURCAD",
-  "AUDNZD",
-  "GBPAUD",
 ];
 
 export async function upcomingIpos() {

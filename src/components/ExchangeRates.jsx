@@ -21,7 +21,7 @@ const ExchangeRates = () => {
 
   if (!rate.length) {
     return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="d-flex justify-content-center align-items-center">
         <Spinner
           as="div"
           animation="border"
