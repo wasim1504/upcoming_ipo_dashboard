@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-function App() {
+import LoginForm from "./components/LoginForm";
+import Dashboard from "./components/Dashboard";
+import SignupForm from "./components/SignupForm";
+
+import ExchangeRates from "./components/ExchangeRates";
+import ProtectedRoute from "./components/ProtectedRoutes";
+import AppLayout from "./components/AppLayout";
+import PageNotFound from "./components/PageNotFound";
+import { Toaster } from "react-hot-toast";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout></AppLayout>
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate replace to="/dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="/exchangeRates" element={<ExchangeRates />} />
+          </Route>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <Toaster
+        position="top-right"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "white",
+            color: "black",
+          },
+        }}
+      />
+    </>
   );
-}
+};
 
 export default App;
