@@ -1,5 +1,5 @@
 const baseUrl = `https://api.iex.cloud/v1`;
-const apiKey = `pk_0ed4e84fd58f43a19a2680b086b4abfe`;
+const apiKey = ``; // replace with iex api key
 
 const currencyList = [
   "EURUSD",
